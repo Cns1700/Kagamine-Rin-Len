@@ -1,0 +1,143 @@
+/* --- Global Document Reset & Base Setup --- */
+body {
+    margin: 0;                   /* Strips the default browser white margins 🧼 */
+    height: 100vh;               /* Forces the page to look exactly 100% of the screen height 🖥️ */
+    background-color: #111111;   /* Sleek, deep background canvas */
+    color: #ffffff;
+    overflow-x: hidden;          /* Prevents any horizontal scroll breaking layout */
+}
+
+/* Base Headings & Typography */
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Tech-heavy geometric font 🎧 */
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p, a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+}
+
+.subtitle {
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* --- The Dynamic Split Container 📊 --- */
+.split-container {
+    display: grid;
+    /* Spans exactly 100% of the screen window height */
+    height: 100vh; 
+    /* Divides the screen into 2 perfectly equal halves on desktop columns! */
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+/* Shared rules for both sides of the screen */
+.side {
+    display: flex;
+    justify-content: center;     /* Centers content horizontally 📐 */
+    align-items: center;         /* Centers content vertically 📐 */
+    padding: 40px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Kagamine Rin's Themed Side 🍊 */
+#rin {
+    /* Energetic orange stage gradient background */
+    background: linear-gradient(135deg, #f19000 0%, #e05300 100%);
+    color: #ffffff;
+}
+
+/* Kagamine Len's Themed Side ⚡ */
+#len {
+    /* Sharp, dark cyber black-and-charcoal background */
+    background: linear-gradient(135deg, #16161a 0%, #0d0d11 100%);
+    color: #ffffff;
+}
+
+/* Restricting the content width so elements stack cleanly */
+.content-wrapper {
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Formatting the illustration wrapper */
+.artwork-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.artwork-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    /* Soft shadow to make the images lift off the background card */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); 
+}
+
+/* --- Kagamine Interactive Action Buttons 🎯 --- */
+
+/* Base rules for both buttons */
+.btn-rin, .btn-len {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-family: 'Orbitron', sans-serif; /* Unified geometric font 🎧 */
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;        /* Smoothly transforms color and glows ✨ */
+}
+
+/* Rin's Button Style (Bright & Solid) 🍊 */
+.btn-rin {
+    background-color: #ffffff;
+    color: #e05300;
+    border: 2px solid #ffffff;
+}
+
+.btn-rin:hover {
+    background-color: #df5620c9;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Len's Button Style (Dark Cyber & Electric Yellow) ⚡ */
+.btn-len {
+    background-color: transparent;
+    color: #f3e500;                  /* Your bright electric midtone yellow! 🌟 */
+    border: 2px solid #f3e500;       /* Electric yellow frame border */
+}
+
+.btn-len:hover {
+    background-color: #f3e500;       /* Fills the button with solid electricity */
+    color: #111111;                  /* Flips text to dark for sharp contrast 🖤 */
+    box-shadow: 0 0 20px #f3e500;    /* Projects an intense electric yellow neon glow! ⚡ */
+}
+
+/* --- Responsive Mobile Layout Breakpoint 📱 --- */
+@media (max-width: 768px) {
+    /* 1. Turns the side-by-side desktop grid into a single vertical column */
+    .split-container {
+        grid-template-columns: 1fr;
+        height: auto; /* Allows the page to grow naturally long as the user scrolls */
+    }
+
+    /* 2. Keeps both halves looking beautifully full-screen on mobile viewports */
+    .side {
+        min-height: 100vh; 
+        padding: 30px 20px;
+    }
+    
+    /* 3. Slightly scales down the massive headers so they fit perfectly on small screens */
+    h1 {
+        font-size: 2.25rem;
+    }
+}
